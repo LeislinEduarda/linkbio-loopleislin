@@ -1,1 +1,9 @@
-
+{
+  "redirects": [
+    {
+      "source": "/guia",
+      "destination": "https://payfast.greenn.com.br/145277/offer/umqRcc?ch_id=134092&utm=LINKNABIO@loopleislin",
+      "permanent": false
+    }
+  ]
+}
