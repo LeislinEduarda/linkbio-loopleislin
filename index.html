@@ -28,7 +28,7 @@
     --fs-title: clamp(26px, 3.2vw, 32px);
 
     --fs-hero: clamp(38px, 6vw, 60px);
-    --fs-hero-sub: clamp(18px, 1.6vw, 20px);
+    --fs-hero-sub: clamp(19px, 2vw, 22px);
     --fs-offer-title: clamp(30px, 4.2vw, 42px);
     --fs-price: clamp(100px, 15vw, 140px);
   }
@@ -128,6 +128,22 @@
   }
 
   .hero-sub strong { font-weight: 700; }
+
+  .hero-sub-brand {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--berry);
+  }
+
+  .hero-sub-action {
+    font-style: italic;
+    font-weight: 700;
+    color: var(--berry);
+    font-size: 1.22em;
+    letter-spacing: -0.015em;
+    background: linear-gradient(transparent 68%, rgba(216, 54, 80, 0.18) 68%);
+    padding: 0 3px;
+  }
 
   /* ========== THOUGHTS (sobrepostos) ========== */
   .thoughts {
@@ -1400,6 +1416,101 @@
     font-weight: 700;
   }
 
+  /* ========== EMPHASIS PHRASE LINE (red underline) ========== */
+  .phrase-line {
+    display: inline-block;
+    font-size: clamp(22px, 3.2vw, 30px);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 8px 0 24px;
+    position: relative;
+    padding-bottom: 10px;
+  }
+
+  .phrase-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: var(--berry);
+    border-radius: 2px;
+  }
+
+  /* ========== SECTION SUB-TITLE (for "série de conteúdo" / "semana inteira") ========== */
+  .section-title {
+    font-size: clamp(22px, 2.8vw, 28px);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin: 28px 0 18px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--berry);
+  }
+
+  /* ========== TRUST SEALS ========== */
+  .trust-seals {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .trust-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    color: var(--text-mute);
+  }
+
+  .price-card .trust-line {
+    color: rgba(254, 250, 245, 0.7);
+  }
+
+  .trust-lock {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+
+  .trust-logos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .trust-logo {
+    background: white;
+    border-radius: 6px;
+    padding: 6px 12px;
+    height: 30px;
+    min-width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  .trust-logo svg {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+
   /* ========== GARANTIA SEAL ========== */
   .guarantee {
     padding: 64px 24px;
@@ -1704,7 +1815,7 @@
         se perguntando <em>"o que eu posto hoje?"</em>
       </h1>
       <p class="hero-sub">
-        O meu modelo de Reels destrinchado num Notion prático pra copiar e colar no seu perfil. <strong>Não é curso. Não é aula.</strong> É abrir, aplicar e postar.
+        O <span class="hero-sub-brand">meu modelo de reels</span> destrinchado num Notion prático, pra <span class="hero-sub-action">copiar e colar</span> no seu perfil. <strong>Não é curso. Não é aula.</strong> É abrir, aplicar e postar.
       </p>
     </div>
   </section>
@@ -1714,7 +1825,9 @@
     <div class="container">
       <h2>O problema não é <em class="c-mustard">o que</em> postar.</h2>
 
-      <p>O seu problema não é o que postar. É <em>ter que decidir</em> o que postar.</p>
+      <p>O seu problema não é o que postar.</p>
+
+      <span class="phrase-line">É ter que <em class="c-berry">decidir</em>.</span>
 
       <p>Toda manhã vem a mesma pergunta: <em>"o que eu posto hoje?"</em>.</p>
 
@@ -1755,11 +1868,13 @@
     <div class="container">
       <h2>Não é um método. É um <em class="c-berry">modelo</em>.</h2>
 
-      <p>Se o problema é ter que decidir, a solução não é mais um curso te ensinando a decidir melhor. É um modelo que <em>tira a decisão do caminho</em>.</p>
+      <p>Se o problema é ter que decidir, a solução não é mais um curso te ensinando a decidir melhor. É um modelo que…</p>
+
+      <span class="phrase-line">tira a decisão do <em class="c-berry">caminho</em>.</span>
 
       <p>É isso que o meu modelo de reels pronto em um Notion faz.</p>
 
-      <p>Ele é baseado em <strong class="c-green">série de conteúdo</strong>:</p>
+      <h3 class="section-title">Ele é baseado em <em>série de conteúdo</em>:</h3>
 
       <div class="series-label">um formato fixo, que se repete,<br>com conteúdos diferentes dentro</div>
 
@@ -1794,7 +1909,7 @@
 
       <p class="caption">Novelas, podcasts e jornais fazem isso há décadas. E sua influenciadora preferida também…</p>
 
-      <p>E é por isso que a sua semana inteira cabe num dia:</p>
+      <h3 class="section-title">E é por isso que a sua <em>semana inteira</em> cabe num dia:</h3>
 
       <div class="elim-viz">
         <div class="elim-title">Você não precisa mais…</div>
@@ -1831,7 +1946,6 @@
           <span class="niche">confeiteira</span>
           <span class="niche">professora de inglês</span>
           <span class="niche">terapeuta</span>
-          <span class="niche">mãe contando rotina</span>
         </div>
       </div>
 
@@ -1889,7 +2003,7 @@
             <div class="check-item"><span class="check-mark">✓</span><span>Nome pronto</span></div>
             <div class="check-item"><span class="check-mark">✓</span><span>Estrutura pronta</span></div>
             <div class="check-item"><span class="check-mark">✓</span><span>Roteiro pronto</span></div>
-            <div class="check-item gift"><span class="check-mark">✦</span><span>e o meu jeitinho de presente: mais 7 episódios prontos pra gravar</span></div>
+            <div class="check-item gift"><span class="check-mark">✦</span><span>e meu jeitinho de tirar 7 episódios a mais do seu primeiro de presente</span></div>
           </div>
         </div>
       </div>
@@ -1923,7 +2037,7 @@
   <!-- O QUE MUDA -->
   <section class="sect reveal">
     <div class="container">
-      <h2>Esse é o meu número desde que comecei a postar em série. <em>O que muda</em> quando você para de <em class="c-berry">decidir todo dia</em>.</h2>
+      <h2>Esse é o meu número desde que comecei a postar em série.</h2>
 
       <div class="stats-impact">
         <div class="impact-cell">
@@ -2017,9 +2131,11 @@
         <div class="courses-result">Mais dinheiro, mais energia, <em>mesmo lugar travado.</em></div>
       </div>
 
+      <span class="phrase-line">travada no mesmo <em class="c-berry">lugar</em>.</span>
+
       <p>Eu sei porque eu também já fiz isso. Você também.</p>
 
-      <p><strong>A real: você não precisa de mais um método pra aprender. Precisa de um modelo pra seguir.</strong></p>
+      <p><strong>você não precisa de mais um método pra aprender. Precisa de um modelo pra seguir.</strong></p>
 
       <div class="mvm">
         <span class="mvm-line"><span class="label c-brown">Método</span> te ensina o caminho.</span>
@@ -2045,8 +2161,7 @@
       </div>
 
       <div class="price-card">
-        <div class="price-card-label">o investimento</div>
-        <div class="price-card-product">O <em>modelo de reels</em> destrinchado num Notion</div>
+        <div class="price-card-product">O <em>meu modelo de reels</em> destrinchado num Notion para você copiar e colar</div>
         <div class="price-card-reveal">
           <span class="price-currency">R$</span><span class="price-number">47</span>
         </div>
@@ -2062,6 +2177,36 @@
             <span class="cta-arrow">→</span>
           </a>
           <div class="cta-sub">Acesso imediato após o pagamento</div>
+        </div>
+
+        <div class="trust-seals">
+          <div class="trust-line">
+            <svg class="trust-lock" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 10V7a6 6 0 1 1 12 0v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="15.5" r="1.5" fill="currentColor"/>
+            </svg>
+            Pagamento 100% seguro
+          </div>
+          <div class="trust-logos">
+            <div class="trust-logo" title="Visa">
+              <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
+                <text x="30" y="15" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="14" font-weight="900" font-style="italic" fill="#1A1F71" letter-spacing="0.5">VISA</text>
+              </svg>
+            </div>
+            <div class="trust-logo" title="Mastercard">
+              <svg viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="18" cy="12" r="9" fill="#EB001B"/>
+                <circle cx="30" cy="12" r="9" fill="#F79E1B" opacity="0.92"/>
+                <path d="M24 5.4a8.97 8.97 0 0 1 0 13.2 8.97 8.97 0 0 1 0-13.2z" fill="#FF5F00"/>
+              </svg>
+            </div>
+            <div class="trust-logo" title="Pix">
+              <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
+                <text x="30" y="15" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="13" font-weight="800" fill="#32BCAD" letter-spacing="0.5">pix</text>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -2136,7 +2281,6 @@
   <!-- FINAL -->
   <section class="final reveal">
     <div class="container">
-      <span class="final-divider"></span>
       <h2 class="final-headline">
         Amanhã você pode acordar com a <span class="or">mesma pergunta</span> de sempre.<br>
         Ou pode acordar com a <em>série pronta.</em>
@@ -2148,6 +2292,36 @@
           <span class="cta-arrow">→</span>
         </a>
         <div class="cta-sub">Pagamento único · Acesso imediato · Garantia de 7 dias</div>
+      </div>
+
+      <div class="trust-seals">
+        <div class="trust-line">
+          <svg class="trust-lock" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 10V7a6 6 0 1 1 12 0v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <rect x="4" y="10" width="16" height="11" rx="2" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="15.5" r="1.5" fill="currentColor"/>
+          </svg>
+          Pagamento 100% seguro
+        </div>
+        <div class="trust-logos">
+          <div class="trust-logo" title="Visa">
+            <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
+              <text x="30" y="15" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="14" font-weight="900" font-style="italic" fill="#1A1F71" letter-spacing="0.5">VISA</text>
+            </svg>
+          </div>
+          <div class="trust-logo" title="Mastercard">
+            <svg viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="12" r="9" fill="#EB001B"/>
+              <circle cx="30" cy="12" r="9" fill="#F79E1B" opacity="0.92"/>
+              <path d="M24 5.4a8.97 8.97 0 0 1 0 13.2 8.97 8.97 0 0 1 0-13.2z" fill="#FF5F00"/>
+            </svg>
+          </div>
+          <div class="trust-logo" title="Pix">
+            <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
+              <text x="30" y="15" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="13" font-weight="800" fill="#32BCAD" letter-spacing="0.5">pix</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </section>
