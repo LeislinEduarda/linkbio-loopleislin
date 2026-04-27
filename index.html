@@ -1,500 +1,2169 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="preconnect" href="https://lastlink.com">
-  <link rel="dns-prefetch" href="//lastlink.com">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conteúdo Perfeito</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Modelo de Reels — Notion pronto pra copiar e colar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --text: #0A0808;
+    --text-mute: #6B635A;
+    --text-light: #A89F93;
+    --hairline: rgba(10, 8, 8, 0.1);
 
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "tctxip36f8");
-  </script>
+    --berry: #D83650;
+    --berry-dark: #A8243D;
+    --brown: #7A4F2E;
+    --green: #7D8F5D;
+    --green-dark: #5E6F46;
+    --mustard: #C99728;
+    --plum: #6B2C4A;
+    --coral: #E88755;
 
-  <style>
-    :root {
-      --bg: #f7f7f8;
-      --surface: #ffffff;
-      --surface-soft: #f0f0f2;
-      --text: #1f1f1f;
-      --muted: #6b6f76;
-      --border: #e5e7eb;
-      --accent: #16a34a;
-      --accent-hover: #15803d;
-      --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
-      --radius: 18px;
-      --max: 760px;
+    --fs-body: 17px;
+    --fs-title: clamp(26px, 3.2vw, 32px);
+
+    --fs-hero: clamp(38px, 6vw, 60px);
+    --fs-hero-sub: clamp(18px, 1.6vw, 20px);
+    --fs-offer-title: clamp(30px, 4.2vw, 42px);
+    --fs-price: clamp(100px, 15vw, 140px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', system-ui, sans-serif;
+    font-weight: 400;
+    background: var(--white);
+    color: var(--text);
+    font-size: var(--fs-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-align: left;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ========== SECTIONS ========== */
+  section { position: relative; }
+
+  .sect { padding: 56px 24px; }
+
+  .sect h2 {
+    font-size: var(--fs-title);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 auto 28px;
+    max-width: 620px;
+    color: var(--text);
+  }
+
+  .sect h2 em,
+  .sect h2 .italic {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .sect p {
+    margin: 0 auto 18px;
+    max-width: 620px;
+    font-size: var(--fs-body);
+    line-height: 1.7;
+    color: var(--text);
+  }
+
+  .sect p strong { font-weight: 700; }
+  .sect p em { font-style: italic; font-weight: 500; }
+
+  /* Color utilities */
+  .c-berry { color: var(--berry); }
+  .c-brown { color: var(--brown); }
+  .c-green { color: var(--green); }
+  .c-mustard { color: var(--mustard); }
+  .c-plum { color: var(--plum); }
+  .c-coral { color: var(--coral); }
+  .c-mute { color: var(--text-mute); }
+
+  /* ========== HERO ========== */
+  .hero { padding: 96px 24px 64px; }
+
+  .hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .hero h1 {
+    font-size: var(--fs-hero);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    color: var(--text);
+  }
+
+  .hero h1 em,
+  .hero h1 .italic {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--berry);
+  }
+
+  .hero-sub {
+    font-size: var(--fs-hero-sub);
+    margin: 0 auto;
+    color: var(--text);
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .hero-sub strong { font-weight: 700; }
+
+  /* ========== THOUGHTS (sobrepostos) ========== */
+  .thoughts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin: 20px auto 28px;
+    max-width: 620px;
+    padding: 14px 0;
+  }
+
+  .thought {
+    background: var(--white);
+    border: 1.5px solid rgba(10, 8, 8, 0.12);
+    padding: 9px 16px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.2;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    color: var(--text);
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .thought:nth-child(1) { transform: rotate(-2.5deg); z-index: 2; }
+  .thought:nth-child(2) { transform: rotate(2deg); margin-left: -10px; z-index: 4; }
+  .thought:nth-child(3) { transform: rotate(-1deg); margin-top: -3px; z-index: 3; }
+  .thought:nth-child(4) { transform: rotate(1.8deg); margin-left: -8px; z-index: 5; }
+  .thought:nth-child(5) { transform: rotate(-2deg); z-index: 2; }
+  .thought:nth-child(6) { transform: rotate(2.5deg); margin-left: -12px; z-index: 4; }
+  .thought:nth-child(7) { transform: rotate(-1.5deg); z-index: 3; }
+
+  /* Emphasis line — same format as stagger */
+  .emphasis-line {
+    font-size: var(--fs-title);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--berry);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin: 6px auto 22px;
+    max-width: 620px;
+    display: block;
+  }
+
+  /* ========== STAGGER: de novo ========== */
+  .stagger {
+    margin: 36px auto;
+    max-width: 620px;
+  }
+
+  .stagger-line {
+    font-size: var(--fs-title);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--berry);
+    display: block;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .stagger-line:nth-child(1) { opacity: 1; }
+  .stagger-line:nth-child(2) { opacity: 0.6; }
+  .stagger-line:nth-child(3) { opacity: 0.35; }
+
+  /* ========== PULL QUOTE ========== */
+  .pull-quote {
+    font-size: var(--fs-title);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--plum);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin: 40px auto;
+    max-width: 620px;
+  }
+
+  /* ========== SHIFT BLOCK ========== */
+  .shift-block {
+    margin: 40px auto;
+    max-width: 620px;
+  }
+
+  .shift-from {
+    font-size: var(--fs-title);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--text-light);
+    text-decoration: line-through;
+    text-decoration-color: var(--berry);
+    text-decoration-thickness: 2px;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .shift-to {
+    font-size: var(--fs-title);
+    font-weight: 500;
+    font-style: italic;
+    color: var(--berry);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    display: block;
+  }
+
+  /* ========== SERIES VIZ ========== */
+  /* ========== SÉRIE VIZ ========== */
+  .series-label {
+    text-align: center;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text-mute);
+    font-weight: 700;
+    margin: 28px auto 14px;
+    max-width: 620px;
+    line-height: 1.5;
+  }
+
+  .series-viz {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 620px;
+  }
+
+  .ep-card { text-align: center; }
+
+  .ep-num {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text-mute);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .ep-box {
+    border: 1.5px solid var(--hairline);
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+  }
+
+  .ep-row {
+    padding: 10px 6px;
+    font-size: 12px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--hairline);
+    line-height: 1.2;
+  }
+
+  .ep-row:last-child { border-bottom: 0; }
+
+  .ep-row.fixed {
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  .ep-row.variable {
+    font-weight: 700;
+    font-style: italic;
+    padding: 14px 6px;
+    font-size: 13px;
+    color: white;
+  }
+
+  .series-foot {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-mute);
+    font-style: italic;
+    margin: 12px auto 0;
+    max-width: 620px;
+    line-height: 1.5;
+  }
+
+  /* ========== CAPTION ========== */
+  .caption {
+    font-style: italic;
+    color: var(--text-mute) !important;
+    font-size: 14.5px !important;
+    margin: 20px auto 36px !important;
+    max-width: 620px !important;
+    text-align: center;
+  }
+
+  /* ========== ELIM VIZ ========== */
+  .elim-viz {
+    margin: 20px auto 32px;
+    max-width: 620px;
+    padding: 24px 26px;
+    border: 1.5px solid var(--hairline);
+    border-radius: 18px;
+    background: white;
+  }
+
+  .elim-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text-mute);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .elim-row {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .elim-row:first-of-type { border-top: none; padding-top: 4px; }
+  .elim-row:last-child { padding-bottom: 0; }
+
+  .elim-old {
+    color: var(--text-mute);
+    text-decoration: line-through;
+    text-decoration-color: var(--berry);
+    text-decoration-thickness: 1.5px;
+    font-size: 14px;
+    font-style: italic;
+    text-align: right;
+    line-height: 1.3;
+  }
+
+  .elim-arrow {
+    color: var(--green);
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .elim-new {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.3;
+  }
+
+  /* ========== DOUBT VIZ ========== */
+  .doubt-viz {
+    margin: 28px auto 32px;
+    max-width: 620px;
+  }
+
+  .doubt-box {
+    border: 1.5px solid var(--hairline);
+    border-radius: 20px;
+    padding: 32px 32px;
+    text-align: center;
+    margin-bottom: 22px;
+    background: white;
+  }
+
+  .doubt-quote {
+    font-size: clamp(19px, 2.6vw, 24px);
+    font-style: italic;
+    color: var(--text-light);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    display: inline-block;
+    position: relative;
+    line-height: 1.35;
+  }
+
+  .doubt-quote::after {
+    content: '';
+    position: absolute;
+    left: -6px;
+    right: -6px;
+    top: 55%;
+    height: 2px;
+    background: var(--berry);
+    transform: rotate(-1.5deg);
+    opacity: 0.85;
+  }
+
+  .doubt-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--green);
+    font-weight: 700;
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .doubt-niches {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .niche {
+    background: white;
+    border: 1.5px solid var(--green);
+    color: var(--green-dark);
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  /* ========== CLOCK + CHECKLIST ========== */
+  .clock-block {
+    margin: 28px auto 36px;
+    max-width: 620px;
+    border: 1.5px solid var(--hairline);
+    border-radius: 22px;
+    background: white;
+    padding: 32px 32px 28px;
+    display: grid;
+    grid-template-columns: 116px 1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .clock-svg {
+    width: 116px;
+    height: 116px;
+    flex-shrink: 0;
+  }
+
+  .clock-text {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .clock-headline {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+  }
+
+  .clock-headline em {
+    font-style: italic;
+    color: var(--berry);
+    font-weight: 700;
+  }
+
+  .checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    line-height: 1.3;
+    color: var(--text);
+  }
+
+  .check-mark {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--green);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
+  .check-item.gift {
+    margin-top: 4px;
+    padding-top: 10px;
+    border-top: 1px dashed rgba(10, 8, 8, 0.18);
+    font-style: italic;
+    color: var(--berry);
+    font-weight: 600;
+  }
+
+  .check-item.gift .check-mark {
+    background: var(--berry);
+  }
+
+  /* ========== STEP CARDS (new) ========== */
+  .step-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin: 28px auto 32px;
+    max-width: 620px;
+  }
+
+  .step-card {
+    border: 1.5px solid var(--hairline);
+    border-radius: 18px;
+    padding: 22px 20px 24px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+
+  .step-card-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--text-mute);
+    margin-bottom: 4px;
+  }
+
+  .step-card-title {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+
+  .step-card-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .step-card-1 { border-top: 4px solid var(--brown); }
+  .step-card-1 .step-card-num { color: var(--brown); }
+
+  .step-card-2 { border-top: 4px solid var(--green); }
+  .step-card-2 .step-card-num { color: var(--green); }
+
+  .step-card-3 { border-top: 4px solid var(--mustard); }
+  .step-card-3 .step-card-num { color: var(--mustard); }
+
+  /* ========== 3 PASSOS ========== */
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 620px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .step-num {
+    font-size: var(--fs-title);
+    font-weight: 500;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .step-body {
+    max-width: 480px;
+  }
+
+  .step-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    margin-bottom: 6px;
+    display: block;
+    font-weight: 700;
+  }
+
+  .step-body h3 {
+    font-size: var(--fs-body);
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+
+  .step-body p {
+    font-size: var(--fs-body);
+    color: var(--text);
+    line-height: 1.7;
+    margin-bottom: 0;
+  }
+
+  /* ========== BATTERY DRAIN ========== */
+  .drain-block {
+    margin: 28px auto 28px;
+    max-width: 620px;
+    border: 1.5px solid var(--hairline);
+    border-radius: 22px;
+    padding: 30px 28px 26px;
+    background: white;
+  }
+
+  .drain-tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px 12px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+
+  .drain-tag {
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--text);
+    background: var(--white);
+    border: 1.5px solid var(--hairline);
+    padding: 7px 14px;
+    border-radius: 100px;
+    white-space: nowrap;
+    position: relative;
+    font-weight: 500;
+  }
+
+  .drain-tag::after {
+    content: "↓";
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--berry);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .battery-svg {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .drain-caption {
+    text-align: center;
+    font-size: 14.5px;
+    color: var(--text);
+    margin-top: 18px;
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .drain-caption em {
+    font-style: italic;
+    color: var(--berry);
+    font-weight: 700;
+  }
+
+  /* ========== COURSE PRICES (drain continuation) ========== */
+  .courses-block {
+    margin: 14px auto 32px;
+    max-width: 620px;
+    border: 1.5px solid var(--hairline);
+    border-radius: 22px;
+    padding: 28px 28px 26px;
+    background: white;
+  }
+
+  .courses-intro {
+    text-align: center;
+    font-size: 15.5px;
+    color: var(--text);
+    margin-bottom: 22px;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  .courses-intro em {
+    font-style: italic;
+    color: var(--berry);
+    font-weight: 700;
+  }
+
+  .price-list {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
+
+  .price-line {
+    background: white;
+    border: 1.5px solid rgba(216, 54, 80, 0.4);
+    color: var(--text-mute);
+    padding: 11px 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: line-through;
+    text-decoration-color: var(--berry);
+    text-decoration-thickness: 2px;
+    font-style: italic;
+    line-height: 1.2;
+  }
+
+  .courses-result {
+    text-align: center;
+    font-size: 14.5px;
+    color: var(--text);
+    line-height: 1.5;
+    font-weight: 500;
+  }
+
+  .courses-result em {
+    font-style: italic;
+    color: var(--berry);
+    font-weight: 700;
+  }
+
+  /* ========== 24 SEMANAS EMPHASIS ========== */
+  .weeks-emphasis {
+    margin: 28px auto 32px;
+    max-width: 620px;
+    border: 1.5px solid var(--green);
+    border-radius: 22px;
+    padding: 28px 28px 26px;
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .weeks-prefix {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--green-dark);
+    margin-bottom: -8px;
+  }
+
+  .weeks-num {
+    font-size: clamp(38px, 6.2vw, 54px);
+    font-weight: 600;
+    font-style: italic;
+    color: var(--green);
+    line-height: 1;
+    letter-spacing: -0.025em;
+  }
+
+  .weeks-verbs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .weeks-verb {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--green-dark);
+    border: 1.5px solid var(--green);
+    padding: 7px 14px;
+    border-radius: 100px;
+    background: white;
+  }
+
+  .weeks-payoff {
+    font-size: 14.5px;
+    color: var(--text-mute);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 6px;
+  }
+
+  .weeks-action {
+    font-size: clamp(22px, 3.4vw, 28px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-top: -6px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .weeks-action::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 8px;
+    background: rgba(125, 143, 93, 0.28);
+    border-radius: 2px;
+    z-index: -1;
+  }
+
+  /* ========== PRICE CARD — momento PAAA ========== */
+  .price-build {
+    text-align: center;
+    margin: 64px auto 0;
+    max-width: 620px;
+  }
+
+  .price-build-line {
+    display: inline-block;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--text-mute);
+    letter-spacing: 0.04em;
+    position: relative;
+    padding: 0 20px;
+  }
+
+  .price-build-line::before,
+  .price-build-line::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 1px;
+    background: var(--text-mute);
+    opacity: 0.4;
+  }
+
+  .price-build-line::before { right: 100%; }
+  .price-build-line::after { left: 100%; }
+
+  .price-card {
+    margin: 22px auto 40px;
+    max-width: 620px;
+    border: none;
+    border-radius: 28px;
+    padding: 48px 32px 42px;
+    background: linear-gradient(160deg, #3A1828 0%, #2A0F1F 50%, #1F0915 100%);
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    box-shadow: 0 30px 64px -18px rgba(42, 15, 31, 0.55);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* subtle warm glow inside */
+  .price-card::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 60%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(232, 135, 85, 0.18) 0%, transparent 60%);
+    pointer-events: none;
+    filter: blur(20px);
+  }
+
+  .price-card::after {
+    content: "";
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 50%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(216, 54, 80, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+    filter: blur(20px);
+  }
+
+  .price-card > * { position: relative; z-index: 2; }
+
+  .price-card-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: var(--coral);
+  }
+
+  .price-card-product {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    max-width: 480px;
+  }
+
+  .price-card-product em {
+    font-style: italic;
+    color: var(--coral);
+    font-weight: 700;
+  }
+
+  .price-card-reveal {
+    line-height: 1;
+    margin: 8px 0 8px;
+  }
+
+  .price-card-reveal .price-currency {
+    font-size: 32px;
+    color: var(--coral);
+    vertical-align: top;
+    margin-right: 4px;
+    position: relative;
+    top: 28px;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  .price-card-reveal .price-number {
+    font-size: clamp(120px, 18vw, 170px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    color: var(--white);
+    font-weight: 600;
+    display: inline-block;
+    font-style: italic;
+  }
+
+  .price-badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+
+  .price-badge {
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--white);
+    border: 1.5px solid rgba(254, 250, 245, 0.4);
+    padding: 8px 14px;
+    border-radius: 100px;
+    background: transparent;
+  }
+
+  /* CTA inside dark price card — coral, max contrast */
+  .price-card .cta-wrap {
+    margin: 22px auto 0;
+  }
+
+  .price-card .cta {
+    background: var(--coral);
+    color: #2A0F1F;
+    box-shadow:
+      0 6px 0 0 #B9603C,
+      0 22px 44px -8px rgba(232, 135, 85, 0.5),
+      0 0 0 0 rgba(254, 250, 245, 0);
+    animation: cta-glow 2.6s ease-in-out infinite;
+    padding: 26px 64px;
+    font-size: 16.5px;
+  }
+
+  @keyframes cta-glow {
+    0%, 100% {
+      box-shadow:
+        0 6px 0 0 #B9603C,
+        0 22px 44px -8px rgba(232, 135, 85, 0.5),
+        0 0 0 0 rgba(254, 250, 245, 0);
     }
-
-    * {
-      box-sizing: border-box;
+    50% {
+      box-shadow:
+        0 6px 0 0 #B9603C,
+        0 22px 44px -8px rgba(232, 135, 85, 0.6),
+        0 0 0 14px rgba(254, 250, 245, 0);
     }
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  .price-card .cta:hover {
+    transform: translateY(3px);
+    animation: none;
+    box-shadow:
+      0 3px 0 0 #B9603C,
+      0 10px 20px -4px rgba(232, 135, 85, 0.6);
+  }
 
-    body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+  .price-card .cta-sub {
+    color: rgba(254, 250, 245, 0.65);
+    margin-top: 16px;
+  }
 
-    .page {
-      min-height: 100vh;
-      padding: 32px 16px 56px;
-    }
+  /* ========== STATS IMPACT ========== */
+  .stats-impact {
+    margin: 28px auto 36px;
+    max-width: 620px;
+    border-top: 1.5px solid var(--text);
+    border-bottom: 1.5px solid var(--text);
+    padding: 28px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    text-align: center;
+  }
 
-    .container {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
+  .impact-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+    border-right: 1px solid var(--hairline);
+  }
 
-    .hero {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      padding: 32px 24px;
-      margin-bottom: 18px;
-    }
+  .impact-cell:last-child { border-right: 0; }
 
-    h1 {
-      margin: 0 0 16px;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      font-weight: 700;
-    }
+  .impact-num {
+    font-size: clamp(34px, 5vw, 46px);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
 
-    .subheadline {
-      margin: 0;
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 62ch;
-    }
+  .impact-label {
+    font-size: 12px;
+    color: var(--text);
+    line-height: 1.3;
+    margin-top: 4px;
+    font-weight: 500;
+  }
 
-    .cta-wrap {
-      margin-top: 24px;
-    }
+  /* ========== BEFORE/AFTER ========== */
+  .ba-block {
+    margin: 28px auto 32px;
+    max-width: 620px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
 
-    .cta-stack {
-      display: grid;
-      gap: 10px;
-    }
+  .ba-card {
+    border: 1.5px solid var(--hairline);
+    border-radius: 18px;
+    padding: 22px 22px 24px;
+    background: white;
+  }
 
-    .price-line {
+  .ba-card.before { border-color: rgba(216, 54, 80, 0.35); }
+  .ba-card.after { border-color: rgba(125, 143, 93, 0.5); }
+
+  .ba-tag {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.24em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .ba-card.before .ba-tag { color: var(--berry); }
+  .ba-card.after .ba-tag { color: var(--green); }
+
+  .ba-text {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .ba-card.before .ba-text {
+    color: var(--text-mute);
+    font-style: italic;
+  }
+
+  /* ========== EMPHASIS QUOTE ========== */
+  .emphasis-quote {
+    margin: 36px auto;
+    max-width: 620px;
+    text-align: center;
+    padding: 28px 28px 30px;
+    border: 1.5px solid var(--berry);
+    border-radius: 22px;
+    background: white;
+  }
+
+  .eq-strike {
+    font-size: 16px;
+    color: var(--text-mute);
+    text-decoration: line-through;
+    text-decoration-color: var(--berry);
+    text-decoration-thickness: 1.5px;
+    font-style: italic;
+    margin-bottom: 10px;
+    display: block;
+    line-height: 1.4;
+  }
+
+  .eq-truth {
+    font-size: clamp(19px, 2.6vw, 22px);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+  }
+
+  .eq-truth em {
+    font-style: italic;
+    color: var(--berry);
+  }
+
+  /* ========== VOICES ========== */
+  .voices-block {
+    margin: 32px auto 28px;
+    max-width: 620px;
+    text-align: center;
+  }
+
+  .voices-intro {
+    font-size: 15px;
+    color: var(--text);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .voices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .voice {
+    background: white;
+    border: 1.5px solid rgba(216, 54, 80, 0.35);
+    color: var(--text-mute);
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.3;
+    text-decoration: line-through;
+    text-decoration-color: rgba(216, 54, 80, 0.55);
+    text-decoration-thickness: 1.5px;
+    max-width: 100%;
+  }
+
+  .voices-verdict {
+    font-size: clamp(28px, 5vw, 38px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--berry);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 14px 0 10px;
+  }
+
+  .voices-after {
+    font-size: 15.5px;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .voices-after em {
+    font-style: italic;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* ========== STATS ========== */
+  .stats {
+    margin: 40px auto;
+    max-width: 620px;
+  }
+
+  .stat-line {
+    font-size: var(--fs-title);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    display: block;
+  }
+
+  .stat-line .n { font-weight: 600; }
+
+  /* ========== MÉTODO vs MODELO ========== */
+  .mvm {
+    margin: 40px auto;
+    max-width: 620px;
+  }
+
+  .mvm-line {
+    font-size: var(--fs-title);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .mvm-line .label {
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* ========== OFFER ========== */
+  .offer { padding: 72px 24px; }
+
+  .offer-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .offer h2 {
+    font-size: var(--fs-offer-title);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 auto 28px;
+    max-width: 620px;
+    color: var(--text);
+  }
+
+  .offer h2 em,
+  .offer h2 .italic {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--berry);
+  }
+
+  .offer p {
+    color: var(--text);
+    max-width: 620px;
+    margin: 0 auto 18px;
+    font-size: var(--fs-body);
+    line-height: 1.7;
+  }
+
+  .offer p strong { font-weight: 700; }
+  .offer p em {
+    font-style: italic;
+    color: var(--plum);
+    font-weight: 500;
+  }
+
+  .price-lead {
+    font-size: var(--fs-body);
+    margin: 40px auto 0;
+    max-width: 620px;
+    color: var(--text-mute);
+    font-style: italic;
+    font-weight: 400;
+    text-align: center;
+  }
+
+  .price-reveal {
+    margin: 4px auto 32px;
+    padding: 16px 0;
+    max-width: 620px;
+    text-align: center;
+  }
+
+  .price-currency {
+    font-size: 26px;
+    color: var(--berry);
+    vertical-align: top;
+    margin-right: 2px;
+    position: relative;
+    top: 24px;
+    font-weight: 500;
+    opacity: 0.75;
+  }
+
+  .price-number {
+    font-size: var(--fs-price);
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--berry);
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .price-terms {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .price-terms span { display: inline-block; margin: 0 8px; }
+  .price-terms .sep { opacity: 0.3; margin: 0; color: var(--text); }
+
+  /* ========== CTA BUTTON ========== */
+  .cta-wrap {
+    margin: 44px auto 16px;
+    text-align: center;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--green);
+    color: var(--white);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 24px 64px;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow:
+      0 6px 0 0 var(--green-dark),
+      0 22px 44px -8px rgba(125, 143, 93, 0.45);
+    border: none;
+    cursor: pointer;
+  }
+
+  .cta:hover {
+    transform: translateY(3px);
+    box-shadow:
+      0 3px 0 0 var(--green-dark),
+      0 10px 20px -4px rgba(125, 143, 93, 0.55);
+  }
+
+  .cta-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
+
+  .cta:hover .cta-arrow { transform: translateX(5px); }
+
+  .cta-sub {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--text);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .cta-sub .pill {
+    font-weight: 700;
+  }
+
+  /* ========== GARANTIA SEAL ========== */
+  .guarantee {
+    padding: 64px 24px;
+    text-align: center;
+  }
+
+  .seal-wrap {
+    width: 340px;
+    height: 340px;
+    margin: 0 auto;
+    position: relative;
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+  }
+
+  .seal-wrap:hover { transform: rotate(0deg); }
+
+  .seal-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--green);
+  }
+
+  .seal-inner {
+    position: absolute;
+    inset: 38px;
+    border: 1px dashed rgba(125, 143, 93, 0.4);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 22px 28px;
+    text-align: center;
+    transform: rotate(3deg);
+  }
+
+  .seal-num {
+    font-size: 76px;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--green);
+    line-height: 0.85;
+    letter-spacing: -0.04em;
+    margin-bottom: 2px;
+  }
+
+  .seal-num-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    color: var(--green-dark);
+    margin-bottom: 12px;
+  }
+
+  .seal-divider {
+    width: 32px;
+    height: 1px;
+    background: rgba(125, 143, 93, 0.4);
+    margin-bottom: 12px;
+  }
+
+  .seal-body {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 500;
+    max-width: 200px;
+  }
+
+  .seal-body strong {
+    font-weight: 700;
+    color: var(--green-dark);
+  }
+
+  /* ========== FAQ — chat bubbles ========== */
+  .faq-sect { padding: 56px 24px; }
+
+  .faq-title {
+    font-size: var(--fs-title);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 auto 12px;
+    max-width: 600px;
+    color: var(--text);
+  }
+
+  .faq-title em,
+  .faq-title .italic {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--berry);
+  }
+
+  .faq-intro {
+    text-align: left;
+    max-width: 620px;
+    margin: 0 auto 36px;
+    color: var(--text-mute);
+    font-size: 14.5px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .faq-chat {
+    max-width: 620px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .chat-pair {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bubble {
+    max-width: 86%;
+    padding: 16px 22px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    position: relative;
+  }
+
+  .bubble.q {
+    align-self: flex-start;
+    background: rgba(10, 8, 8, 0.05);
+    border-radius: 22px 22px 22px 6px;
+    color: var(--text);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .bubble.a {
+    align-self: flex-end;
+    background: var(--green-dark);
+    color: var(--white);
+    border-radius: 22px 22px 6px 22px;
+    font-weight: 500;
+  }
+
+  .bubble.a strong {
+    font-weight: 700;
+  }
+
+  .bubble.a em {
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  /* ========== FINAL — closing, calm ========== */
+  .final { padding: 72px 24px 88px; text-align: center; }
+
+  .final-divider {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--text-mute);
+    opacity: 0.4;
+    margin: 0 auto 32px;
+  }
+
+  .final-headline {
+    font-size: var(--fs-title);
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    max-width: 620px;
+    margin: 0 auto 32px;
+    color: var(--text);
+  }
+
+  .final-headline em,
+  .final-headline .italic {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--berry);
+  }
+
+  .final-headline .or {
+    font-style: italic;
+    color: var(--text-light);
+    font-weight: 400;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 720px) {
+    .hero { padding: 64px 24px 48px; }
+    .sect { padding: 48px 24px; }
+    .offer { padding: 56px 20px; }
+    .final { padding: 56px 24px 72px; }
+    .guarantee { padding: 56px 24px; }
+    .seal-wrap { width: 280px; height: 280px; }
+    .seal-inner { inset: 30px; padding: 18px 22px; }
+    .seal-num { font-size: 60px; }
+    .seal-num-label { font-size: 9px; letter-spacing: 0.22em; }
+    .seal-body { font-size: 11.5px; max-width: 180px; }
+    .faq-sect { padding: 48px 24px; }
+    .bubble { font-size: 14.5px; padding: 14px 18px; max-width: 92%; }
+    .faq-chat { gap: 26px; }
+    .chat-pair { gap: 8px; }
+
+    .price-currency { font-size: 22px; top: 18px; }
+    .cta { padding: 20px 44px; font-size: 14px; letter-spacing: 0.06em; }
+
+    .thought { font-size: 12.5px; padding: 8px 14px; }
+    .thought:nth-child(2),
+    .thought:nth-child(4),
+    .thought:nth-child(6) { margin-left: 0; }
+
+    .series-viz { gap: 6px; }
+    .ep-num { font-size: 9px; letter-spacing: 0.16em; }
+    .ep-row { padding: 8px 4px; font-size: 11px; }
+    .ep-row.variable { font-size: 12px; padding: 11px 4px; }
+    .series-label { font-size: 10px; letter-spacing: 0.18em; }
+    .series-foot { font-size: 12.5px; }
+
+    .elim-viz { padding: 18px 16px; }
+    .elim-row { grid-template-columns: 1fr 18px 1fr; gap: 8px; padding: 10px 0; }
+    .elim-old, .elim-new { font-size: 12.5px; line-height: 1.3; }
+    .elim-title { font-size: 11px; }
+    .elim-arrow { font-size: 15px; }
+
+    .doubt-box { padding: 24px 18px; }
+    .niche { font-size: 12px; padding: 6px 12px; }
+
+    .clock-block {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 26px 22px 24px;
       text-align: center;
-      font-size: 0.98rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.45;
     }
+    .clock-svg { margin: 0 auto; width: 96px; height: 96px; }
+    .clock-headline { font-size: 16px; }
+    .check-item { font-size: 14px; justify-content: flex-start; text-align: left; }
 
-    .price-line span {
-      display: block;
-      font-weight: 500;
-      color: var(--muted);
-      font-size: 0.94rem;
-      margin-top: 2px;
-    }
+    .step-cards { grid-template-columns: 1fr; gap: 12px; }
+    .step-card { padding: 20px 20px 22px; }
 
-    .sub-gancho {
-      text-align: center;
-      font-size: 0.97rem;
-      color: var(--text);
-      font-weight: 600;
-      line-height: 1.45;
-    }
+    .stats-impact { grid-template-columns: 1fr; gap: 14px; padding: 22px 0; }
+    .impact-cell { border-right: 0; border-bottom: 1px solid var(--hairline); padding-bottom: 14px; flex-direction: row; gap: 12px; justify-content: center; align-items: center; }
+    .impact-cell:last-child { border-bottom: 0; padding-bottom: 0; }
+    .impact-num { font-size: 32px; }
+    .impact-label { margin-top: 0; text-align: left; }
 
-    .cta {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      background: var(--accent);
-      color: #ffffff;
-      padding: 18px 22px;
-      border-radius: 16px;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
-      box-shadow: 0 6px 20px rgba(17, 17, 17, 0.12);
-    }
+    .ba-block { grid-template-columns: 1fr; gap: 10px; }
+    .ba-card { padding: 18px 20px 20px; }
+    .ba-text { font-size: 14px; }
 
-    .cta:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-    }
+    .emphasis-quote { padding: 22px 22px 24px; }
+    .eq-strike { font-size: 14.5px; }
+    .voice { font-size: 14px; padding: 10px 18px; }
 
-    .section {
-      display: grid;
-      gap: 14px;
-      margin-top: 16px;
-    }
+    .drain-block, .courses-block { padding: 24px 20px 22px; }
+    .drain-tag { font-size: 12px; padding: 6px 12px; }
+    .drain-tags { gap: 22px 10px; margin-bottom: 30px; }
+    .drain-caption, .courses-intro, .courses-result { font-size: 14px; }
+    .price-line { font-size: 14.5px; padding: 9px 14px; }
 
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px 22px;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-    }
+    .weeks-emphasis { padding: 24px 20px 22px; gap: 12px; }
+    .weeks-verb { font-size: 11px; padding: 6px 12px; letter-spacing: 0.16em; }
+    .weeks-payoff { font-size: 13.5px; }
+    .weeks-prefix { font-size: 11px; letter-spacing: 0.18em; }
+    .weeks-action { font-size: 21px; }
 
-    .card h2 {
-      margin: 0 0 14px;
-      font-size: 1.22rem;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-    }
+    .price-build { margin: 48px auto 0; }
+    .price-build-line { font-size: 12px; padding: 0 14px; }
+    .price-build-line::before, .price-build-line::after { width: 18px; }
 
-    .card h3 {
-      margin: 18px 0 8px;
-      font-size: 1.02rem;
-      line-height: 1.35;
-      letter-spacing: -0.01em;
-    }
+    .price-card { padding: 36px 22px 32px; gap: 12px; margin: 18px auto 32px; }
+    .price-card-product { font-size: 16px; }
+    .price-card-reveal .price-currency { font-size: 26px; top: 20px; }
+    .price-badge { font-size: 10.5px; padding: 7px 12px; letter-spacing: 0.14em; }
+  }
 
-    .card p {
-      margin: 0 0 14px;
-      color: var(--text);
-      font-size: 1rem;
-    }
+  /* ========== SCROLL REVEAL ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
 
-    .card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .highlight {
-      font-weight: 700;
-    }
-
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 18px 0;
-    }
-
-    .steps {
-      display: grid;
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .step {
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-    }
-
-    .step-number {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--muted);
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .step h3 {
-      margin: 0 0 8px;
-      font-size: 1.03rem;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--text);
-    }
-
-    .list-block {
-      margin-top: 16px;
-    }
-
-    .list-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 0 0 10px;
-    }
-
-    .clean-list {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    .clean-list li {
-      margin: 0 0 8px;
-      color: var(--text);
-    }
-
-    .final {
-      margin-top: 18px;
-      background: linear-gradient(180deg, #ffffff 0%, #f9f9fa 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 28px 22px;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .final p {
-      margin: 0 0 18px;
-      font-size: 1.08rem;
-      line-height: 1.5;
-    }
-
-    @media (min-width: 768px) {
-      .hero,
-      .card,
-      .final {
-        padding: 34px;
-      }
-
-      .section {
-        gap: 16px;
-      }
-    }
-  </style>
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
 </head>
 <body>
-  <main class="page">
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>
+        Nunca mais acorde<br>
+        se perguntando <em>"o que eu posto hoje?"</em>
+      </h1>
+      <p class="hero-sub">
+        O meu modelo de Reels destrinchado num Notion prático pra copiar e colar no seu perfil. <strong>Não é curso. Não é aula.</strong> É abrir, aplicar e postar.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="sect reveal">
     <div class="container">
+      <h2>O problema não é <em class="c-mustard">o que</em> postar.</h2>
 
-      <section class="hero">
-        <h1>Você abre o ChatGPT, conversa, conversa, conversa… e quanto mais conversa, menos posta.</h1>
+      <p>O seu problema não é o que postar. É <em>ter que decidir</em> o que postar.</p>
 
-        <p class="subheadline">
-          O Conteúdo Perfeito foi criado para te ensinar a pedir certo no ChatGPT, parar de rodar em respostas sem fim e encontrar mais rápido o que você precisa para postar um conteúdo que é só seu.
-        </p>
+      <p>Toda manhã vem a mesma pergunta: <em>"o que eu posto hoje?"</em>.</p>
+
+      <p>E junto com ela vêm outras 15:</p>
+
+      <div class="thoughts">
+        <span class="thought">qual assunto?</span>
+        <span class="thought">como começar o vídeo?</span>
+        <span class="thought">falando pra câmera ou com texto?</span>
+        <span class="thought">sigo uma trend ou faço do meu jeito?</span>
+        <span class="thought">legenda longa ou curta?</span>
+        <span class="thought">com chamada ou sem?</span>
+        <span class="thought">posto agora ou mais tarde?</span>
+      </div>
+
+      <p>Uma decisão puxa a outra. E nenhuma delas tem a ver com o seu trabalho de verdade.</p>
+
+      <p>É isso que te deixa esgotada todos os dias, mesmo sem ter gravado nada.</p>
+
+      <p>Aí você começa a achar que é procrastinadora. Mas não é. Isso tem nome:</p>
+
+      <span class="emphasis-line">fadiga de decisão.</span>
+
+      <p>É quando seu cérebro gasta toda a energia decidindo coisa demais antes mesmo de você começar.</p>
+
+      <p>E o pior: amanhã recomeça do zero. O reels que você postou ontem não te ajuda a fazer o de hoje. Toda manhã, começo do zero.</p>
+
+      <div class="stagger">
+        <span class="stagger-line">De novo.</span>
+        <span class="stagger-line">De novo.</span>
+        <span class="stagger-line">De novo.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="sect reveal">
+    <div class="container">
+      <h2>Não é um método. É um <em class="c-berry">modelo</em>.</h2>
+
+      <p>Se o problema é ter que decidir, a solução não é mais um curso te ensinando a decidir melhor. É um modelo que <em>tira a decisão do caminho</em>.</p>
+
+      <p>É isso que o meu modelo de reels pronto em um Notion faz.</p>
+
+      <p>Ele é baseado em <strong class="c-green">série de conteúdo</strong>:</p>
+
+      <div class="series-label">um formato fixo, que se repete,<br>com conteúdos diferentes dentro</div>
+
+      <div class="series-viz">
+        <div class="ep-card">
+          <div class="ep-num">ep. 01</div>
+          <div class="ep-box">
+            <div class="ep-row fixed">abertura</div>
+            <div class="ep-row variable" style="background: var(--coral)">Recheio A</div>
+            <div class="ep-row fixed">fechamento</div>
+          </div>
+        </div>
+        <div class="ep-card">
+          <div class="ep-num">ep. 02</div>
+          <div class="ep-box">
+            <div class="ep-row fixed">abertura</div>
+            <div class="ep-row variable" style="background: var(--mustard)">Recheio B</div>
+            <div class="ep-row fixed">fechamento</div>
+          </div>
+        </div>
+        <div class="ep-card">
+          <div class="ep-num">ep. 03</div>
+          <div class="ep-box">
+            <div class="ep-row fixed">abertura</div>
+            <div class="ep-row variable" style="background: var(--berry)">Recheio C</div>
+            <div class="ep-row fixed">fechamento</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="series-foot">a estrutura é sempre a mesma.<br>o que muda é o assunto de cada episódio.</div>
+
+      <p class="caption">Novelas, podcasts e jornais fazem isso há décadas. E sua influenciadora preferida também…</p>
+
+      <p>E é por isso que a sua semana inteira cabe num dia:</p>
+
+      <div class="elim-viz">
+        <div class="elim-title">Você não precisa mais…</div>
+        <div class="elim-row">
+          <span class="elim-old">escolher o formato</span>
+          <span class="elim-arrow">→</span>
+          <span class="elim-new">a estrutura já tá definida</span>
+        </div>
+        <div class="elim-row">
+          <span class="elim-old">pensar na abertura</span>
+          <span class="elim-arrow">→</span>
+          <span class="elim-new">abre igual toda vez</span>
+        </div>
+        <div class="elim-row">
+          <span class="elim-old">inventar o fechamento</span>
+          <span class="elim-arrow">→</span>
+          <span class="elim-new">fecha igual toda vez</span>
+        </div>
+        <div class="elim-row">
+          <span class="elim-old">decidir o que postar</span>
+          <span class="elim-arrow">→</span>
+          <span class="elim-new">só decide o próximo episódio</span>
+        </div>
+      </div>
+
+      <div class="doubt-viz">
+        <div class="doubt-box">
+          <div class="doubt-quote">"isso funciona pra ela, não pra mim"</div>
+        </div>
+        <div class="doubt-label">mas já funciona pra:</div>
+        <div class="doubt-niches">
+          <span class="niche">nutricionista</span>
+          <span class="niche">arquiteta</span>
+          <span class="niche">confeiteira</span>
+          <span class="niche">professora de inglês</span>
+          <span class="niche">terapeuta</span>
+          <span class="niche">mãe contando rotina</span>
+        </div>
+      </div>
+
+      <p>O que eu fiz foi pegar esse modelo, aplicar no meu perfil, testar, ajustar e destrinchar num Notion pra você não ter que fazer esse caminho sozinha.</p>
+
+      <p>Você abre. Escolhe o tema da sua série. Monta seguindo o passo a passo. Grava.</p>
+
+      <p>Amanhã, não começa do zero. Abre o Notion, vai pro próximo episódio, e grava.</p>
+
+      <div class="shift-block">
+        <span class="shift-from">"o que eu posto hoje?"</span>
+        <span class="shift-to">"qual é o próximo episódio?"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE VOCÊ VAI TER -->
+  <section class="sect reveal">
+    <div class="container">
+      <h2>O que você vai ter quando terminar.</h2>
+
+      <div class="clock-block">
+        <svg class="clock-svg" viewBox="0 0 116 116" xmlns="http://www.w3.org/2000/svg">
+          <!-- outer ring -->
+          <circle cx="58" cy="58" r="52" fill="none" stroke="#0A0808" stroke-width="2"/>
+          <!-- inner soft fill -->
+          <circle cx="58" cy="58" r="48" fill="#FBF7F2"/>
+          <!-- 40 minute progress arc (40min = 2/3 of clock) -->
+          <circle cx="58" cy="58" r="48"
+                  fill="none"
+                  stroke="#D83650"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  stroke-dasharray="201 301"
+                  transform="rotate(-90 58 58)"
+                  opacity="0.92"/>
+          <!-- hour ticks -->
+          <g stroke="#0A0808" stroke-width="2" stroke-linecap="round">
+            <line x1="58" y1="14" x2="58" y2="20"/>
+            <line x1="102" y1="58" x2="96" y2="58"/>
+            <line x1="58" y1="102" x2="58" y2="96"/>
+            <line x1="14" y1="58" x2="20" y2="58"/>
+          </g>
+          <!-- hands: 12 -> 8 (40 min) -->
+          <line x1="58" y1="58" x2="58" y2="22" stroke="#0A0808" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="58" y1="58" x2="26" y2="78" stroke="#D83650" stroke-width="3" stroke-linecap="round"/>
+          <!-- center dot -->
+          <circle cx="58" cy="58" r="3.5" fill="#0A0808"/>
+        </svg>
+
+        <div class="clock-text">
+          <div class="clock-headline">Em <em>40 minutos</em>, você vai sair com a <em>série pronta</em>.</div>
+
+          <div class="checklist">
+            <div class="check-item"><span class="check-mark">✓</span><span>Nome pronto</span></div>
+            <div class="check-item"><span class="check-mark">✓</span><span>Estrutura pronta</span></div>
+            <div class="check-item"><span class="check-mark">✓</span><span>Roteiro pronto</span></div>
+            <div class="check-item gift"><span class="check-mark">✦</span><span>e o meu jeitinho de presente: mais 7 episódios prontos pra gravar</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p>São <strong>3 passos simples</strong> pra você seguir e sair com tudo montado.</p>
+
+      <div class="step-cards">
+        <div class="step-card step-card-1">
+          <div class="step-card-num">Passo 01</div>
+          <div class="step-card-title">Ache a sua série</div>
+          <div class="step-card-text">Você descobre o tema que te alimenta por meses de conteúdo em vez de pular de ideia em ideia. Eu te mostro os 3 lugares onde tema de série mora e o filtro que separa ideia que aguenta de ideia que trava.</div>
+        </div>
+
+        <div class="step-card step-card-2">
+          <div class="step-card-num">Passo 02</div>
+          <div class="step-card-title">Dá o nome certo pra ela</div>
+          <div class="step-card-text">O nome é o que faz alguém parar de rolar e entrar na tua série. Você vai aprender a fórmula de 3 ingredientes que todo nome bom tem. E 3 moldes prontos pra usar se travar.</div>
+        </div>
+
+        <div class="step-card step-card-3">
+          <div class="step-card-num">Passo 03</div>
+          <div class="step-card-title">Copia o meu roteiro de série</div>
+          <div class="step-card-text">Você recebe os 2 moldes de roteiro que eu uso em todos os meus reels, destrinchados frase a frase. No fim desse passo, você já tem o roteiro do seu primeiro episódio escrito. E o atalho pra gerar os próximos 7 em 1 hora.</div>
+        </div>
+      </div>
+
+      <p>Tudo num Notion que você abre no celular ou no computador, usa quando quiser e nunca perde o acesso.</p>
+    </div>
+  </section>
+
+  <!-- O QUE MUDA -->
+  <section class="sect reveal">
+    <div class="container">
+      <h2>Esse é o meu número desde que comecei a postar em série. <em>O que muda</em> quando você para de <em class="c-berry">decidir todo dia</em>.</h2>
+
+      <div class="stats-impact">
+        <div class="impact-cell">
+          <div class="impact-num c-brown">3 horas</div>
+          <div class="impact-label">por semana</div>
+        </div>
+        <div class="impact-cell">
+          <div class="impact-num c-green">1 reels</div>
+          <div class="impact-label">por dia</div>
+        </div>
+        <div class="impact-cell">
+          <div class="impact-num c-berry">24 semanas</div>
+          <div class="impact-label">seguidas</div>
+        </div>
+      </div>
+
+      <div class="ba-block">
+        <div class="ba-card before">
+          <span class="ba-tag">antes</span>
+          <div class="ba-text">travada todo dia, tentando decidir tudo do zero, gastando o melhor da tua energia em escolhas que não deviam nem estar no teu caminho.</div>
+        </div>
+        <div class="ba-card after">
+          <span class="ba-tag">depois</span>
+          <div class="ba-text">3 horas por semana, 1 reels por dia, 24 semanas seguidas. Sem trava, sem reabrir o app, sem decidir do zero.</div>
+        </div>
+      </div>
+
+      <div class="emphasis-quote">
+        <span class="eq-strike">eu me tornei mais criativa</span>
+        <div class="eq-truth">eu <em>parei de decidir</em> a mesma coisa todo dia.</div>
+      </div>
+
+      <p>Quando você tem uma série rodando, o <strong>dia a dia volta a ser seu</strong>.</p>
+
+      <div class="voices-block">
+        <div class="voices-intro">E as vozes que gritam:</div>
+
+        <div class="voices">
+          <span class="voice">"eu precisava postar"</span>
+          <span class="voice">"não sei nem por onde começar"</span>
+        </div>
+
+        <div class="voices-verdict">somem.</div>
+
+        <div class="voices-after">Você abre o Notion, escolhe o <em>recheio</em>, grava e posta.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="offer reveal" id="oferta">
+    <div class="offer-inner">
+      <h2>Quanto está te custando decidir <em class="c-berry">tudo</em> todo dia?</h2>
+
+      <div class="drain-block">
+        <div class="drain-tags">
+          <span class="drain-tag">qual assunto?</span>
+          <span class="drain-tag">qual gancho?</span>
+          <span class="drain-tag">qual formato?</span>
+          <span class="drain-tag">que horas postar?</span>
+        </div>
+
+        <svg class="battery-svg" viewBox="0 0 420 90" xmlns="http://www.w3.org/2000/svg">
+          <!-- battery body -->
+          <rect x="6" y="12" width="380" height="66" rx="14" fill="none" stroke="#0A0808" stroke-width="2.5"/>
+          <!-- battery terminal -->
+          <rect x="390" y="32" width="14" height="26" rx="3" fill="#0A0808"/>
+          <!-- inner background (drained) -->
+          <rect x="16" y="22" width="360" height="46" rx="6" fill="#FAF5EF"/>
+          <!-- low battery red sliver -->
+          <rect x="16" y="22" width="36" height="46" rx="6" fill="#D83650"/>
+          <!-- segment dividers (dashed) -->
+          <line x1="106" y1="22" x2="106" y2="68" stroke="#A89F93" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="196" y1="22" x2="196" y2="68" stroke="#A89F93" stroke-width="1" stroke-dasharray="3 3"/>
+          <line x1="286" y1="22" x2="286" y2="68" stroke="#A89F93" stroke-width="1" stroke-dasharray="3 3"/>
+        </svg>
+
+        <div class="drain-caption">Cada decisão suga a tua bateria. <em>Antes mesmo de você gravar.</em></div>
+      </div>
+
+      <div class="courses-block">
+        <div class="courses-intro">E comprar um curso, aprender mais um <em>método</em>, também não vai resolver. Não importa se pagar:</div>
+
+        <div class="price-list">
+          <span class="price-line">R$ 297</span>
+          <span class="price-line">R$ 697</span>
+          <span class="price-line">R$ 997</span>
+          <span class="price-line">R$ 1.497</span>
+        </div>
+
+        <div class="courses-result">Mais dinheiro, mais energia, <em>mesmo lugar travado.</em></div>
+      </div>
+
+      <p>Eu sei porque eu também já fiz isso. Você também.</p>
+
+      <p><strong>A real: você não precisa de mais um método pra aprender. Precisa de um modelo pra seguir.</strong></p>
+
+      <div class="mvm">
+        <span class="mvm-line"><span class="label c-brown">Método</span> te ensina o caminho.</span>
+        <span class="mvm-line"><span class="label c-berry">Modelo</span> já é o caminho. Pronto, documentado, testado.</span>
+      </div>
+
+      <p>Eu não gastei dez horas gravando aula.</p>
+
+      <div class="weeks-emphasis">
+        <div class="weeks-prefix">Gastei</div>
+        <div class="weeks-num">24 semanas</div>
+        <div class="weeks-verbs">
+          <span class="weeks-verb">aplicando</span>
+          <span class="weeks-verb">ajustando</span>
+          <span class="weeks-verb">documentando</span>
+        </div>
+        <div class="weeks-payoff">pra você só</div>
+        <div class="weeks-action">copiar e colar.</div>
+      </div>
+
+      <div class="price-build">
+        <span class="price-build-line">e tudo isso é seu por</span>
+      </div>
+
+      <div class="price-card">
+        <div class="price-card-label">o investimento</div>
+        <div class="price-card-product">O <em>modelo de reels</em> destrinchado num Notion</div>
+        <div class="price-card-reveal">
+          <span class="price-currency">R$</span><span class="price-number">47</span>
+        </div>
+        <div class="price-badges">
+          <span class="price-badge">Pagamento único</span>
+          <span class="price-badge">Acesso vitalício</span>
+          <span class="price-badge">Usa pra sempre</span>
+        </div>
 
         <div class="cta-wrap">
-          <div class="cta-stack">
-            <div class="price-line">
-              12x de R$ 20,98 ou R$ 197 à vista
-              <span>Acesso imediato. Aplique hoje mesmo. Não precisa de ChatGPT pago.</span>
-            </div>
-
-            <a
-              href="https://lastlink.com/p/C6D3DFEC9/checkout-payment?utm_source=LINKNABIO2&utm_medium=LINKNABIO2&utm_campaign=LINKNABIO2"
-              class="cta"
-            >
-              Quero parar de me enrolar e postar
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-
-        <article class="card">
-          <h2>O Método Conteúdo Perfeito (do jeito que você vai aplicar na prática)</h2>
-          <p>
-            <span class="highlight">3 passos para sair do chat com conteúdo que realmente pode ser publicado.</span>
-          </p>
-
-          <div class="steps">
-            <div class="step">
-              <span class="step-number">Passo 1</span>
-              <h3>O início que desbloqueia tudo</h3>
-              <p>
-                Você entende o que está te travando, quais são os combinados do método e qual é o primeiro pedido que você precisa fazer para destravar.
-              </p>
-            </div>
-
-            <div class="step">
-              <span class="step-number">Passo 2</span>
-              <h3>Anatomia do Pedido Perfeito</h3>
-              <p>
-                Você aprende a montar e ajustar um pedido do jeito certo — para não receber resposta genérica, longa e inútil.
-              </p>
-            </div>
-
-            <div class="step">
-              <span class="step-number">Passo 3</span>
-              <h3>Os 12 Pedidos Perfeitos (a parte prática)</h3>
-              <p>
-                Você pega um pedido pronto, aplica, ajusta com critério e sai com conteúdo publicável para: branding, público, ideia, gancho, roteiro, carrossel, stories, série, legenda, bio, destaques e análise de viralização.
-              </p>
-            </div>
-          </div>
-
-          <div class="divider"></div>
-
-          <p class="sub-gancho">
-            Você não vai “aprender prompt”. Você vai aprender direção.
-          </p>
-
-          <div class="cta-wrap">
-            <div class="cta-stack">
-              <div class="price-line">
-                12x de R$ 20,98 ou R$ 197 à vista
-                <span>Acesso imediato. Aplique hoje mesmo. Não precisa de ChatGPT pago.</span>
-              </div>
-
-              <a
-                href="https://lastlink.com/p/C6D3DFEC9/checkout-payment?utm_source=LINKNABIO2&utm_medium=LINKNABIO2&utm_campaign=LINKNABIO2"
-                class="cta"
-              >
-                QUERO SAIR DO LOOPING E POSTAR
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <h2>O que você vai receber</h2>
-
-          <div class="list-block">
-            <p class="list-title">✅ Conteúdo principal</p>
-            <ul class="clean-list">
-              <li><strong>O início que desbloqueia tudo</strong></li>
-              <li>Combinados do Conteúdo Perfeito</li>
-              <li>O que ninguém te contou sobre o ChatGPT</li>
-              <li>O primeiro pedido que você vai fazer hoje</li>
-            </ul>
-          </div>
-
-          <div class="list-block">
-            <ul class="clean-list">
-              <li><strong>Anatomia do Pedido Perfeito</strong></li>
-              <li>Dissecando um pedido perfeito para o ChatGPT</li>
-            </ul>
-          </div>
-
-          <div class="list-block">
-            <ul class="clean-list">
-              <li><strong>Os 12 Pedidos Perfeitos de Conteúdo</strong></li>
-              <li>Pedido Perfeito Branding 🔑</li>
-              <li>Pedido Perfeito Público 🔑</li>
-              <li>Pedido Perfeito Ideia 🔑</li>
-              <li>Pedido Perfeito Gancho 🔑</li>
-              <li>Pedido Perfeito Roteiro para Vídeo Curto 🔑</li>
-              <li>Pedido Perfeito Carrosséis 🔑</li>
-              <li>Pedido Perfeito Stories 🔑</li>
-              <li>Pedido Perfeito Série 🔑</li>
-              <li>Pedido Perfeito Legenda 🔑</li>
-              <li>Pedido Perfeito Análise de Viralização 🔑</li>
-              <li>Pedido Perfeito Bio 🔑</li>
-              <li>Pedido Perfeito Destaques 🔑</li>
-            </ul>
-          </div>
-
-          <div class="list-block">
-            <p class="list-title">🎁 Bônus especiais</p>
-            <ul class="clean-list">
-              <li>9 Hacks Pessoais de Design para Carrosséis Magnéticos</li>
-              <li>Como dizer “não gostei” para o ChatGPT (sem refazer tudo)</li>
-              <li>“Mini” pedidos para o ChatGPT se tornar 10x melhor</li>
-              <li>Personalizando o ChatGPT para responder como você</li>
-            </ul>
-          </div>
-
-          <div class="list-block">
-            <p class="list-title">🏁 Próximos passos</p>
-            <ul class="clean-list">
-              <li>Como saber se o post está perfeito?</li>
-              <li>Postei, e agora?</li>
-              <li>Meus exemplos de posts perfeitos e reais</li>
-              <li>Acesso à Escola da Leislin</li>
-              <li>Acesso aos meus Funcionários Não Humanos</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="card">
-          <h2>“Mas eu já sei usar o ChatGPT…”</h2>
-
-          <p>Saber usar o ChatGPT não é a mesma coisa que saber sair dele com um post.</p>
-          <p>O problema não está só em pedir uma ideia de qualquer jeito.</p>
-          <p>Mas também não está em achar que, para funcionar, você precisa escrever um prompt enorme, técnico e cheio de explicações.</p>
-          <p>É nessa nuance que muita gente trava.</p>
-          <p>Ou pede solto demais.</p>
-          <p>Ou complica demais.</p>
-          <p>E, nos dois casos, acaba no mesmo lugar: <span class="highlight">respostas demais e post de menos.</span></p>
-          <p>O <span class="highlight">Conteúdo Perfeito</span> foi criado para te ensinar esse ponto de <span class="highlight">perfeito</span> de como pedir com direção, reconhecer o que importa e entender a hora de parar de conversar e postar.</p>
-        </article>
-
-        <article class="card">
-          <h2>“Mas eu achei que o objetivo era o ChatGPT me entregar o post perfeito”</h2>
-
-          <p>Não.</p>
-          <p>O objetivo não é ficar esperando o ChatGPT acertar de primeira.</p>
-          <p>O post perfeito não é o post que nasceu impecável dentro do chat.</p>
-          <p class="highlight">O post perfeito é o post feito.</p>
-          <p>É o post que saiu.</p>
-          <p>Que você entendeu.</p>
-          <p>Que conseguiu ajustar.</p>
-          <p>Que publicou.</p>
-          <p>Que é só seu.</p>
-          <p>E que não ficou preso em 40 minutos de conversa sem fim.</p>
-          <p>O Conteúdo Perfeito não foi criado para te prometer um texto milagroso.</p>
-          <p>Foi criado para te ajudar a encontrar a resposta certa para postar.</p>
-          <p>Porque, muitas vezes, o que trava não é a falta de conteúdo.</p>
-          <p><span class="highlight">É a falta de direção.</span></p>
-          <p>E quando você encontra a resposta que importa, para de rodar e começa a postar.</p>
-        </article>
-
-        <article class="card">
-          <h2>“Mas eu acho que preciso pedir de um jeito super complexo para sair algo bom”</h2>
-
-          <p>Você não precisa de um pedido longo.</p>
-          <p class="highlight">Você precisa de um pedido certo.</p>
-          <p>Tem gente que acha que, para o ChatGPT entregar algo bom, precisa escrever um prompt enorme, cheio de contexto, explicações e comandos.</p>
-          <p>Mas, muitas vezes, isso só te afasta do que você queria.</p>
-          <p>Porque quanto mais você complica, mais espaço abre para o ChatGPT te levar para caminhos, versões e respostas que nem eram o ponto.</p>
-          <p>Essa página é simples e curta por um motivo:</p>
-          <p class="highlight">o seu pedido também não precisa ser longo e complexo para te ajudar a postar.</p>
-          <p>O que você precisa é de direção.</p>
-          <p>De estrutura.</p>
-          <p>De um jeito de pedir que faça o ChatGPT te ajudar de verdade.</p>
-          <p>Em vez de te prender numa conversa que parece produtiva, mas não vira post.</p>
-        </article>
-
-        <article class="card">
-          <h2>“Mas eu preciso do ChatGPT pago para isso funcionar?”</h2>
-
-          <p>Não.</p>
-          <p>Porque o que mais muda o seu resultado aqui não é o plano.</p>
-          <p class="highlight">É a forma como você pede.</p>
-          <p>O Conteúdo Perfeito foi criado para te ensinar a usar o ChatGPT com direção — inclusive na versão gratuita.</p>
-          <p>Porque sair do looping, reconhecer a resposta que importa e entender a hora de postar não depende de ter o plano pago.</p>
-          <p>Depende de saber usar melhor a ferramenta que você já tem.</p>
-        </article>
-      </section>
-
-      <section class="final" id="comprar">
-        <p>
-          Se você quer sair do looping, encontrar a resposta que importa e usar o ChatGPT para finalmente postar, o <strong>Conteúdo Perfeito</strong> é para você.
-        </p>
-
-        <div class="cta-stack">
-          <div class="price-line">
-            12x de R$ 20,98 ou R$ 197 à vista
-            <span>Acesso imediato. Aplique hoje mesmo. Não precisa de ChatGPT pago.</span>
-          </div>
-
-          <a
-            href="https://lastlink.com/p/C6D3DFEC9/checkout-payment?utm_source=LINKNABIO2&utm_medium=LINKNABIO2&utm_campaign=LINKNABIO2"
-            class="cta"
-          >
-            Quero parar de me enrolar e postar
+          <a href="#" class="cta">
+            Quero o modelo por R$47
+            <span class="cta-arrow">→</span>
           </a>
+          <div class="cta-sub">Acesso imediato após o pagamento</div>
         </div>
-      </section>
-
+      </div>
     </div>
-  </main>
+  </section>
+
+  <!-- GARANTIA -->
+  <section class="guarantee reveal">
+    <div class="seal-wrap">
+      <svg class="seal-svg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+        <!-- outer ring -->
+        <circle cx="170" cy="170" r="168" fill="white" stroke="currentColor" stroke-width="2"/>
+        <circle cx="170" cy="170" r="158" fill="none" stroke="currentColor" stroke-width="0.8"/>
+
+        <!-- curved text path: full circle -->
+        <defs>
+          <path id="seal-circle" d="M 170,170 m -142,0 a 142,142 0 1,1 284,0 a 142,142 0 1,1 -284,0" fill="none"/>
+        </defs>
+
+        <!-- top label: GARANTIA INCONDICIONAL · 7 DIAS · RISCO ZERO  (loops around) -->
+        <text font-family="Open Sans" font-size="11" font-weight="700" letter-spacing="3.5" fill="currentColor">
+          <textPath href="#seal-circle" startOffset="0">
+            ✦  GARANTIA INCONDICIONAL  ✦  7 DIAS PRA TESTAR  ✦  RISCO ZERO  ✦  GARANTIA INCONDICIONAL  ✦  7 DIAS PRA TESTAR  ✦  RISCO ZERO
+          </textPath>
+        </text>
+
+        <!-- decorative small dots/stars at cardinal points -->
+        <circle cx="170" cy="14" r="3" fill="currentColor"/>
+        <circle cx="170" cy="326" r="3" fill="currentColor"/>
+        <circle cx="14" cy="170" r="3" fill="currentColor"/>
+        <circle cx="326" cy="170" r="3" fill="currentColor"/>
+      </svg>
+
+      <div class="seal-inner">
+        <div class="seal-num">7</div>
+        <div class="seal-num-label">dias pra testar</div>
+        <div class="seal-divider"></div>
+        <div class="seal-body">Você abre, testa, aplica. Se em 7 dias achar que não é pra você, eu devolvo os <strong>R$47</strong>.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-sect reveal">
+    <div class="container">
+      <h2 class="faq-title">Perguntas que <em>talvez você tenha</em>.</h2>
+      <p class="faq-intro">A gente já teve essa conversa antes:</p>
+
+      <div class="faq-chat">
+        <div class="chat-pair">
+          <div class="bubble q">"Mas o meu caso é mais complicado."</div>
+          <div class="bubble a">Não é. Todo mundo acha que é. A estrutura da série funciona igual pra nutri, arquiteta, confeiteira, psicóloga, professora, mãe falando de rotina ou criadora de qualquer nicho. O que muda é o tema dentro do modelo, e o modelo te guia pra encontrar o tema certo pro teu caso, no <em>passo 1</em>.</div>
+        </div>
+
+        <div class="chat-pair">
+          <div class="bubble q">"Quanto tempo leva pra aplicar?"</div>
+          <div class="bubble a">O primeiro reels sai pronto em <strong>40 minutos</strong>. É o tempo dos 3 passos mais o roteiro do episódio 1. Os próximos saem em cerca de 10 minutos cada, porque a estrutura já tá montada. Você só troca o tema.</div>
+        </div>
+
+        <div class="chat-pair">
+          <div class="bubble q">"Preciso saber mexer no Notion?"</div>
+          <div class="bubble a">Não. Notion é só onde o modelo mora, pra você reacessar quando quiser. Você não vai configurar nada, não vai montar nada, não vai aprender ferramenta. <em>Abre, lê, usa.</em></div>
+        </div>
+
+        <div class="chat-pair">
+          <div class="bubble q">"Preciso saber alguma coisa sobre conteúdo pra Instagram?"</div>
+          <div class="bubble a">Não. Você precisa saber sobre o que você já faz: seu trabalho, teu dia, o que você já vive. O modelo entrega o resto: <strong>estrutura, roteiro, legenda, gancho</strong>. É pra isso que ele existe.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final reveal">
+    <div class="container">
+      <span class="final-divider"></span>
+      <h2 class="final-headline">
+        Amanhã você pode acordar com a <span class="or">mesma pergunta</span> de sempre.<br>
+        Ou pode acordar com a <em>série pronta.</em>
+      </h2>
+
+      <div class="cta-wrap">
+        <a href="#" class="cta">
+          Quero o modelo por R$47
+          <span class="cta-arrow">→</span>
+        </a>
+        <div class="cta-sub">Pagamento único · Acesso imediato · Garantia de 7 dias</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => io.observe(el));
+</script>
+
 </body>
 </html>
