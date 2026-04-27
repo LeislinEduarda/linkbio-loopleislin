@@ -133,16 +133,70 @@
     font-style: italic;
     font-weight: 700;
     color: var(--berry);
+    font-size: 1.32em;
+    letter-spacing: -0.012em;
+    background: linear-gradient(transparent 70%, rgba(216, 54, 80, 0.16) 70%);
+    padding: 0 3px;
   }
 
   .hero-sub-action {
     font-style: italic;
     font-weight: 700;
     color: var(--berry);
-    font-size: 1.22em;
-    letter-spacing: -0.015em;
-    background: linear-gradient(transparent 68%, rgba(216, 54, 80, 0.18) 68%);
-    padding: 0 3px;
+    font-size: 1.55em;
+    letter-spacing: -0.022em;
+    background: linear-gradient(transparent 68%, rgba(216, 54, 80, 0.22) 68%);
+    padding: 0 4px;
+  }
+
+  /* ========== OBJECTION BREAK ========== */
+  .objection-break {
+    margin-top: 36px;
+    padding-top: 28px;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ob-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--text-mute);
+    font-style: italic;
+    font-weight: 500;
+  }
+
+  .ob-row.affirm {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 19px;
+    margin-top: 4px;
+  }
+
+  .ob-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .ob-icon.x { color: var(--text-light); }
+  .ob-icon.check { color: var(--green); }
+
+  .hero-objection {
+    margin-top: 28px;
+    font-size: clamp(15px, 1.4vw, 17px);
+    color: var(--text-mute);
+    line-height: 1.55;
+    font-weight: 500;
+  }
+
+  .hero-objection strong {
+    color: var(--text);
+    font-weight: 700;
   }
 
   /* ========== THOUGHTS (sobrepostos) ========== */
@@ -1830,8 +1884,32 @@
         se perguntando <em>"o que eu posto hoje?"</em>
       </h1>
       <p class="hero-sub">
-        O <span class="hero-sub-brand">meu modelo de reels</span> destrinchado num Notion prático, pra <span class="hero-sub-action">copiar e colar</span> no seu perfil. <strong>Não é curso. Não é aula.</strong> É abrir, aplicar e postar.
+        O <span class="hero-sub-brand">meu modelo de reels</span> destrinchado num Notion prático, pra <span class="hero-sub-action">copiar e colar</span> no seu perfil.
       </p>
+
+      <div class="objection-break">
+        <div class="ob-row">
+          <svg class="ob-icon x" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span>Não é curso.</span>
+        </div>
+        <div class="ob-row">
+          <svg class="ob-icon x" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span>Não é aula.</span>
+        </div>
+        <div class="ob-row affirm">
+          <svg class="ob-icon check" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="9" fill="currentColor"/>
+            <path d="M5.5 10.5L8.5 13.5L14.5 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>É abrir, aplicar e postar.</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2213,8 +2291,13 @@
               </svg>
             </div>
             <div class="trust-logo" title="Pix">
-              <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
-                <text x="30" y="15" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="13" font-weight="800" fill="#32BCAD" letter-spacing="0.5">pix</text>
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <g fill="#32BCAD">
+                  <path d="M12 2 L17 7 L12 12 L7 7 Z"/>
+                  <path d="M22 12 L17 17 L12 12 L17 7 Z"/>
+                  <path d="M12 22 L7 17 L12 12 L17 17 Z"/>
+                  <path d="M2 12 L7 7 L12 12 L7 17 Z"/>
+                </g>
               </svg>
             </div>
           </div>
@@ -2263,7 +2346,6 @@
   <section class="faq-sect reveal">
     <div class="container">
       <h2 class="faq-title">Perguntas que <em>talvez você tenha</em>.</h2>
-      <p class="faq-intro">A gente já teve essa conversa antes:</p>
 
       <div class="faq-chat">
         <div class="chat-pair">
@@ -2328,8 +2410,13 @@
             </svg>
           </div>
           <div class="trust-logo" title="Pix">
-            <svg viewBox="0 0 60 20" xmlns="http://www.w3.org/2000/svg">
-              <text x="30" y="15" text-anchor="middle" font-family="Open Sans, sans-serif" font-size="13" font-weight="800" fill="#32BCAD" letter-spacing="0.5">pix</text>
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#32BCAD">
+                <path d="M12 2 L17 7 L12 12 L7 7 Z"/>
+                <path d="M22 12 L17 17 L12 12 L17 7 Z"/>
+                <path d="M12 22 L7 17 L12 12 L17 17 Z"/>
+                <path d="M2 12 L7 7 L12 12 L7 17 Z"/>
+              </g>
             </svg>
           </div>
         </div>
