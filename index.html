@@ -657,6 +657,189 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"
     background: var(--berry);
   }
 
+  /* ========== FLOW VIZ (4 steps with arrows) ========== */
+  .flow-viz {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 6px;
+    margin: 32px auto;
+    max-width: 620px;
+    flex-wrap: wrap;
+  }
+
+  .flow-step {
+    flex: 1;
+    min-width: 0;
+    background: white;
+    border: 1.5px solid var(--hairline);
+    border-radius: 14px;
+    padding: 16px 10px 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .flow-icon {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .flow-action {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.25;
+  }
+
+  .flow-arrow {
+    align-self: center;
+    color: var(--berry);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+    padding: 0 2px;
+  }
+
+  /* ========== STEP CARD BULLET LIST ========== */
+  .step-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .step-card-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .step-card-arrow {
+    flex-shrink: 0;
+    font-weight: 700;
+    line-height: 1.5;
+    width: 12px;
+  }
+
+  .step-card-1 .step-card-arrow { color: var(--brown); }
+  .step-card-2 .step-card-arrow { color: var(--green); }
+  .step-card-3 .step-card-arrow { color: var(--mustard); }
+
+  .step-card-bullet.gift {
+    margin-top: 4px;
+    padding-top: 8px;
+    border-top: 1px dashed rgba(10, 8, 8, 0.15);
+    font-style: italic;
+    color: var(--berry);
+    font-weight: 600;
+  }
+
+  .step-card-bullet.gift .step-card-arrow {
+    color: var(--berry);
+  }
+
+  /* ========== NOTION HIGHLIGHT ========== */
+  .notion-highlight {
+    margin: 36px auto;
+    max-width: 620px;
+    padding: 24px 28px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(125, 143, 93, 0.08), rgba(125, 143, 93, 0.04));
+    border: 1.5px solid rgba(125, 143, 93, 0.35);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .notion-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--green);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1;
+  }
+
+  .notion-text {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .notion-text em {
+    font-style: italic;
+    color: var(--green-dark);
+    font-weight: 700;
+  }
+
+  /* ========== BEFORE/AFTER PROS-CONS LIST ========== */
+  .ba-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .ba-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .ba-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 1px;
+  }
+
+  .ba-icon.x {
+    background: rgba(216, 54, 80, 0.12);
+    color: var(--berry);
+    border: 1.5px solid rgba(216, 54, 80, 0.5);
+  }
+
+  .ba-icon.check {
+    background: rgba(125, 143, 93, 0.15);
+    color: var(--green-dark);
+    border: 1.5px solid var(--green);
+  }
+
+  .ba-card.before .ba-bullet {
+    color: var(--text-mute);
+    font-style: italic;
+  }
+
+  .ba-card.after .ba-bullet {
+    color: var(--text);
+    font-weight: 500;
+  }
+
   /* ========== STEP CARDS (new) ========== */
   .step-cards {
     display: grid;
@@ -1885,6 +2068,18 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"
     .step-cards { grid-template-columns: 1fr; gap: 12px; }
     .step-card { padding: 20px 20px 22px; }
 
+    .flow-viz { gap: 4px; }
+    .flow-step { padding: 14px 8px 12px; }
+    .flow-icon { font-size: 18px; }
+    .flow-action { font-size: 11.5px; }
+    .flow-arrow { font-size: 14px; padding: 0 1px; }
+
+    .notion-highlight { padding: 18px 20px; gap: 14px; }
+    .notion-icon { width: 38px; height: 38px; font-size: 18px; }
+    .notion-text { font-size: 14.5px; }
+
+    .ba-bullet { font-size: 13px; }
+
     .stats-impact { grid-template-columns: 1fr; gap: 14px; padding: 22px 0; }
     .impact-cell { border-right: 0; border-bottom: 1px solid var(--hairline); padding-bottom: 14px; flex-direction: row; gap: 12px; justify-content: center; align-items: center; }
     .impact-cell:last-child { border-bottom: 0; padding-bottom: 0; }
@@ -1977,8 +2172,6 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"
     <div class="container">
       <h2>O problema não é <em class="c-mustard">o que</em> postar.</h2>
 
-      <p>O seu problema não é o que postar.</p>
-
       <span class="phrase-line">É ter que <em class="c-berry">decidir</em>.</span>
 
       <p>Toda manhã vem a mesma pergunta: <em>"o que eu posto hoje?"</em>.</p>
@@ -1999,7 +2192,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"
 
       <p>É isso que te deixa esgotada todos os dias, mesmo sem ter gravado nada.</p>
 
-      <p>Aí você começa a achar que é procrastinadora. Mas não é. Isso tem nome:</p>
+      <p>Aí você começa a achar que o problema é você. Mas esse problema tem nome:</p>
 
       <span class="emphasis-line">fadiga de decisão.</span>
 
@@ -2103,9 +2296,29 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"
 
       <p>O que eu fiz foi pegar esse modelo, aplicar no meu perfil, testar, ajustar e destrinchar num Notion pra você não ter que fazer esse caminho sozinha.</p>
 
-      <p>Você abre. Escolhe o tema da sua série. Monta seguindo o passo a passo. Grava.</p>
+      <div class="flow-viz">
+        <div class="flow-step">
+          <div class="flow-icon">📂</div>
+          <div class="flow-action">Você abre</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-icon">🎯</div>
+          <div class="flow-action">Escolhe o tema</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-icon">📝</div>
+          <div class="flow-action">Monta o passo a passo</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+          <div class="flow-icon">🎬</div>
+          <div class="flow-action">Grava</div>
+        </div>
+      </div>
 
-      <p>Amanhã, não começa do zero. Abre o Notion, vai pro próximo episódio, e grava.</p>
+      <p>Nunca mais comece um dia começando do zero.</p>
 
       <div class="shift-block">
         <span class="shift-from">"o que eu posto hoje?"</span>
@@ -2166,23 +2379,40 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"
         <div class="step-card step-card-1">
           <div class="step-card-num">Passo 01</div>
           <div class="step-card-title">Ache a sua série</div>
-          <div class="step-card-text">Você descobre o tema que te alimenta por meses de conteúdo em vez de pular de ideia em ideia. Eu te mostro os 3 lugares onde tema de série mora e o filtro que separa ideia que aguenta de ideia que trava.</div>
+          <div class="step-card-list">
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Você descobre o tema</span></div>
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>O tema alimenta seu conteúdo por meses</span></div>
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Você para de pular de ideia em ideia</span></div>
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Eu revelo os meus 3 lugares que tiro os melhores temas de série</span></div>
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Mostro o filtro que uso para separar ideia que aguenta episódios infinitos da ideia que trava nos primeiros</span></div>
+          </div>
         </div>
 
         <div class="step-card step-card-2">
           <div class="step-card-num">Passo 02</div>
           <div class="step-card-title">Dá o nome certo pra ela</div>
-          <div class="step-card-text">O nome é o que faz alguém parar de rolar e entrar na tua série. Você vai aprender a fórmula de 3 ingredientes que todo nome bom tem. E 3 moldes prontos pra usar se travar.</div>
+          <div class="step-card-list">
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Te mostro o nome que faz alguém parar de rolar e entrar na tua série</span></div>
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>A minha fórmula de 3 ingredientes que todo bom nome tem</span></div>
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Meus 3 moldes prontos para usar sem travar</span></div>
+          </div>
         </div>
 
         <div class="step-card step-card-3">
           <div class="step-card-num">Passo 03</div>
           <div class="step-card-title">Copia o meu roteiro de série</div>
-          <div class="step-card-text">Você recebe o meu modelo exato que uso em todos os meus reels, destrinchados frase a frase. No fim desse passo, você já tem o roteiro do seu primeiro episódio escrito. E o atalho pra gerar os próximos 7 em 1 hora.</div>
+          <div class="step-card-list">
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Você recebe o meu modelo exato que uso em todos os meus reels, destrinchado frase a frase</span></div>
+            <div class="step-card-bullet"><span class="step-card-arrow">→</span><span>Você termina de escrever seu primeiro episódio</span></div>
+            <div class="step-card-bullet gift"><span class="step-card-arrow">✦</span><span>Recebe de presente meu jeitinho de gerar mais 7 episódios em menos de 1 hora usando o Claude</span></div>
+          </div>
         </div>
       </div>
 
-      <p>Tudo num Notion que você abre no celular ou no computador, usa quando quiser e nunca perde o acesso.</p>
+      <div class="notion-highlight">
+        <div class="notion-icon">N</div>
+        <div class="notion-text">Tudo num Notion que você abre <em>no celular ou no computador</em>, usa quando quiser e <em>nunca perde o acesso</em>.</div>
+      </div>
     </div>
   </section>
 
@@ -2209,11 +2439,21 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"
       <div class="ba-block">
         <div class="ba-card before">
           <span class="ba-tag">antes</span>
-          <div class="ba-text">travada todo dia, tentando decidir tudo do zero, gastando o melhor da tua energia em escolhas que não deviam nem estar no teu caminho.</div>
+          <div class="ba-list">
+            <div class="ba-bullet"><span class="ba-icon x">✕</span><span>travada todo dia tentando decidir o que postar</span></div>
+            <div class="ba-bullet"><span class="ba-icon x">✕</span><span>começando do zero toda manhã</span></div>
+            <div class="ba-bullet"><span class="ba-icon x">✕</span><span>gastando o melhor da energia em escolhas</span></div>
+            <div class="ba-bullet"><span class="ba-icon x">✕</span><span>achando que o problema era você</span></div>
+          </div>
         </div>
         <div class="ba-card after">
           <span class="ba-tag">depois</span>
-          <div class="ba-text">3 horas por semana, 1 reels por dia, 24 semanas seguidas. Sem trava, sem reabrir o app, sem decidir do zero.</div>
+          <div class="ba-list">
+            <div class="ba-bullet"><span class="ba-icon check">✓</span><span>3 horas por semana, 1 reels por dia</span></div>
+            <div class="ba-bullet"><span class="ba-icon check">✓</span><span>24 semanas seguidas sem trava</span></div>
+            <div class="ba-bullet"><span class="ba-icon check">✓</span><span>abre o Notion, escolhe o tema, grava</span></div>
+            <div class="ba-bullet"><span class="ba-icon check">✓</span><span>sem decidir do zero todo dia</span></div>
+          </div>
         </div>
       </div>
 
