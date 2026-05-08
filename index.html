@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>22 em 2 — Antes de começar</title>
+<title>22 em 2 · Antes de começar</title>
 
 <!-- Meta Pixel -->
 <script>
@@ -100,42 +100,16 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     position: relative;
   }
 
-  /* iOS status bar */
-  .status-bar {
-    height: 44px;
-    padding: 14px 24px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--notion-text);
-    background: var(--notion-bg);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .status-time { letter-spacing: -0.01em; }
-
-  .status-icons {
-    display: flex;
-    gap: 6px;
-    align-items: center;
-  }
-
-  .status-icons svg { display: block; }
-
   /* Notion top nav */
   .notion-nav {
-    height: 44px;
+    height: 48px;
     padding: 0 8px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background: var(--notion-bg);
     position: sticky;
-    top: 44px;
+    top: 0;
     z-index: 99;
   }
 
@@ -473,6 +447,40 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     font-weight: 700;
   }
 
+  .offer-includes {
+    list-style: none;
+    margin: 0 0 4px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .offer-includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14.5px;
+    line-height: 1.45;
+    color: var(--notion-text);
+    font-weight: 500;
+  }
+
+  .offer-includes-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--callout-pink-text);
+    color: white;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    line-height: 1;
+  }
+
   .offer-divider {
     border: none;
     border-top: 1px solid rgba(173, 26, 114, 0.18);
@@ -633,8 +641,12 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
         0 0 0 11px #2A2A2A,
         0 30px 80px rgba(0, 0, 0, 0.3);
     }
-    .status-bar {
+    .status-bar, .notion-nav {
       border-radius: 38px 38px 0 0;
+    }
+    .notion-nav {
+      padding-top: 8px;
+      height: 56px;
     }
   }
 
@@ -644,29 +656,6 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
 <body>
 
 <div class="phone-shell">
-
-  <!-- iOS status bar -->
-  <div class="status-bar">
-    <span class="status-time">9:41</span>
-    <div class="status-icons">
-      <svg width="18" height="11" viewBox="0 0 18 11" fill="currentColor">
-        <rect x="0" y="7" width="3" height="4" rx="0.5"/>
-        <rect x="5" y="5" width="3" height="6" rx="0.5"/>
-        <rect x="10" y="2" width="3" height="9" rx="0.5"/>
-        <rect x="15" y="0" width="3" height="11" rx="0.5"/>
-      </svg>
-      <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor">
-        <path d="M8 11L10 8.8 C9.5 8.4 8.8 8.2 8 8.2 C7.2 8.2 6.5 8.4 6 8.8 L8 11Z"/>
-        <path d="M8 5 C5.8 5 3.7 5.8 2 7.2 L3.6 8.8 C4.8 7.8 6.3 7.2 8 7.2 C9.7 7.2 11.2 7.8 12.4 8.8 L14 7.2 C12.3 5.8 10.2 5 8 5Z"/>
-        <path d="M8 1.5 C4.8 1.5 1.8 2.6 0 4.5 L1.5 6 C3.4 4.5 5.4 3.6 8 3.6 C10.6 3.6 12.6 4.5 14.5 6 L16 4.5 C14.2 2.6 11.2 1.5 8 1.5Z"/>
-      </svg>
-      <svg width="26" height="12" viewBox="0 0 26 12" fill="none">
-        <rect x="0.5" y="0.5" width="22" height="11" rx="2.5" stroke="currentColor" stroke-opacity="0.4"/>
-        <rect x="2" y="2" width="19" height="8" rx="1.5" fill="currentColor"/>
-        <rect x="23.5" y="3.5" width="2" height="5" rx="1" fill="currentColor" fill-opacity="0.5"/>
-      </svg>
-    </div>
-  </div>
 
   <!-- Notion top nav -->
   <nav class="notion-nav">
@@ -702,7 +691,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
 
     <div class="page-icon">🎬</div>
 
-    <h1 class="page-title">Antes de começar — uma coisa rápida</h1>
+    <h1 class="page-title">Antes de começar, uma coisa rápida</h1>
 
     <div class="page-meta">
       <span class="page-meta-item">
@@ -717,7 +706,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     </div>
 
     <!-- OPENING -->
-    <p class="block">Antes de tudo: <strong><em>parabéns</em></strong>. Você acabou de fazer a parte mais difícil — parar de decidir o que postar todo dia.</p>
+    <p class="block">Antes de tudo, <strong><em>parabéns</em></strong>. Você acabou de fazer a parte mais difícil. Parar de decidir o que postar todo dia.</p>
 
     <p class="block">O modelo que você acabou de levar é o mesmo que me entrega <strong>visualizações, seguidores e vendas</strong> todo dia há mais de 24 semanas. Em <em>40 minutos</em> você vai estar saindo com seu primeiro episódio pronto.</p>
 
@@ -755,7 +744,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     <!-- REVEAL -->
     <p class="block">Então olha só. Eu liguei a câmera e gravei eu gravando <span class="berry-bg">22 reels em 2 horas</span>, sem decorar nada.</p>
 
-    <p class="block">Mostro os equipamentos que uso, como decido quais lugares do meu ap viram cenário e os apps que eu abro pra editar <em>em minutos</em>.</p>
+    <p class="block">Mostro os equipamentos que uso, como decido quais lugares do meu ap viram cenário, e como eu <em>edito tudo em menos de 1 hora</em> usando IA e CapCut.</p>
 
     <div class="callout">
       <div class="callout-icon">💡</div>
@@ -778,7 +767,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
       </div>
       <div class="num-item">
         <span class="num-marker">3.</span>
-        <span class="num-text">Ver, do meu lado, exatamente como eu faço — e <strong>descobrir que é mais simples do que parece</strong>.</span>
+        <span class="num-text">Ver, do meu lado, exatamente como eu faço. E <strong>descobrir que é mais simples do que parece</strong>.</span>
       </div>
     </div>
 
@@ -811,7 +800,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
         <span>Porque uso roupas diferentes em cada série</span>
       </summary>
       <div class="toggle-content">
-        <p>Não é vaidade — é estratégia. Te explico por quê.</p>
+        <p>Não é vaidade. É estratégia. Te explico por quê.</p>
       </div>
     </details>
 
@@ -828,10 +817,10 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     <details class="toggle">
       <summary class="toggle-summary">
         <svg class="toggle-arrow" viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 3.5L10.5 8L5.5 12.5V3.5Z"/></svg>
-        <span>Os apps que eu abro pra editar</span>
+        <span>Como edito meus reels em menos de 1 hora usando IA + CapCut</span>
       </summary>
       <div class="toggle-content">
-        <p>Quais apps, em que ordem, e quanto tempo levo em cada um.</p>
+        <p>O passo a passo da minha edição. Como eu uso IA pra acelerar o trabalho pesado e o CapCut pra finalizar tudo. Inclui os prompts que eu uso e o tempo médio em cada etapa.</p>
       </div>
     </details>
 
@@ -841,7 +830,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
         <span>Como eu deixei de empacar em cada fala</span>
       </summary>
       <div class="toggle-content">
-        <p>Porque acontece comigo também — e tem jeito.</p>
+        <p>Porque acontece comigo também. E tem jeito.</p>
       </div>
     </details>
 
@@ -866,13 +855,28 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     <!-- OFFER -->
     <div class="offer-card" id="oferta">
       <div class="offer-card-head">
-        <span class="offer-emoji">🎁</span>
+        <span class="offer-emoji">🎬</span>
         <span class="offer-tag">22 em 2 · oferta exclusiva</span>
       </div>
 
       <div class="offer-title">
-        Eu gravando <em>22 reels em 2 horas</em>, sem decorar nada — pra você consultar quando quiser.
+        Meu material pessoal gravado: <em>eu gravando 22 reels em 2 horas</em>, sem decorar nada.
       </div>
+
+      <ul class="offer-includes">
+        <li>
+          <span class="offer-includes-icon">▶</span>
+          <span>Vídeo da minha gravação completa, do início ao fim</span>
+        </li>
+        <li>
+          <span class="offer-includes-icon">▶</span>
+          <span>Como edito tudo em menos de 1 hora usando IA + CapCut</span>
+        </li>
+        <li>
+          <span class="offer-includes-icon">▶</span>
+          <span>Acesso pra sempre, no celular ou computador</span>
+        </li>
+      </ul>
 
       <hr class="offer-divider">
 
@@ -900,7 +904,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     </div>
 
     <p class="decline-block">
-      <a href="https://www.leislin.com.br/obrigado" class="decline-link">Não, obrigada — quero seguir só com o modelo →</a>
+      <a href="https://www.leislin.com.br/obrigado" class="decline-link">Não, obrigada. Quero seguir só com o modelo →</a>
     </p>
 
     <hr class="divider">
@@ -909,7 +913,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     <div class="callout green">
       <div class="callout-icon">🛡️</div>
       <div class="callout-body">
-        <strong>Garantia de 7 dias — vale pros dois juntos.</strong><br>
+        <strong>Garantia de 7 dias, vale pros dois juntos.</strong><br>
         Se em 7 dias <em>não for pra ti</em>, eu devolvo tudo.
       </div>
     </div>
@@ -919,7 +923,7 @@ src="https://www.facebook.com/tr?id=1292839838840770&ev=PageView&noscript=1"/></
     <!-- FINAL -->
     <p class="block" style="font-size: 17px; line-height: 1.55;">Independente do que você escolher aqui, <em>abre teu Notion ainda hoje</em>. O passo mais importante você já deu.</p>
 
-    <p class="signature-block">— <span class="signature-name">Leislin</span></p>
+    <p class="signature-block"><span class="signature-name">Leislin</span> ✦</p>
 
   </article>
 
